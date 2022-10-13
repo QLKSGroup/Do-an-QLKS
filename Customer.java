@@ -49,7 +49,6 @@ public class Customer {
         phoneNumber=in.nextLine();
         System.out.print("\n Address: ");
         address=in.nextLine();
-        in.close();
     }
 
     // public void showInfCustomer()
