@@ -57,7 +57,6 @@ public class NhanVien{
         ID=in.nextLine();
         System.out.print("\n Phone Number: ");
         phoneNumber=in.nextLine();
-        in.close();
         }
 
         public void xuatNV()
