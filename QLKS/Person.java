@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class Person{
 
-    private String hoTen;
-    protected String CMND;
-    private String gioiTinh;
-    private int namSinh;
-    private String email;
-    private String SDT;
-    private String diaChi;
+    private String hoTen; //Họ tên 
+    protected String CMND; //CMND 
+    private String gioiTinh; //giới tính
+    private int namSinh; //năm sinh
+    private String email; //email
+    private String SDT; //SDT
+    private String diaChi; //Địa chỉ
     static Scanner sc = new Scanner(System.in);
 
     public Person() {
@@ -55,22 +55,13 @@ public class Person{
         return gioiTinh;
     }
     
-    public boolean checkGT(String gt){
-        System.out.println("Moi nhap gioi Tinh:");
-        gt=sc.nextLine();
-        if(gt.equalsIgnoreCase("Nam")|| gt.equalsIgnoreCase("Nu"))
-            return true;
-        
-        return false;
-    }
-    public void setGioiTinh(String gioiTinh) {
-        for(;;){
-            if(gioiTinh.equalsIgnoreCase("Nam")|| gioiTinh.equalsIgnoreCase("Nu"))
-                break;
-            System.out.println("Moi nhap lai gioi tinh:");
-            gioiTinh=sc.nextLine();
-        }
-        while(!checkGT(gioiTinh));
+    public void setGioitinh(String gioiTinh) 
+    {
+        do 
+        {
+            System.out.println("Nhap gioi tinh: ");
+            gioiTinh = sc.nextLine();
+        } while(!gioiTinh.equalsIgnoreCase("Nam")&&!gioiTinh.equalsIgnoreCase("Nu"));
         this.gioiTinh = gioiTinh;
     }
 
