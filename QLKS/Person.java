@@ -98,14 +98,6 @@ public class Person{
         this.SDT = SDT;
     }
 
-    public String getDiaChi() {
-        return diaChi;
-    }
-
-    public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
-    }
-
     public void nhap(){
         setHoTen(hoTen);
         setGioiTinh(gioiTinh);
@@ -119,7 +111,7 @@ public class Person{
 
     @Override
     public String toString() {
-        return String.format("|%10s|%20s|%10.2f|%10d|%20s|10%s|%5s|", hoTen, CMND, gioiTinh, namSinh, email, SDT, diaChi);
+        return String.format("|%10s|%20s|%10.2f|%10d|%20s|%5s|", hoTen, CMND, gioiTinh, namSinh, email, SDT);
     }
     
     public void xuat(){
