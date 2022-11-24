@@ -42,12 +42,12 @@ public class Person{
         return CMND;
     }
 
-    public void setCMND(String cMND) {
+    public void setCMND(String CMND) {
         do{
              System.out.println("Nhap CMND:");
             CMND = sc.nextLine();
-        } while(CMND.length() < 12);
-        this.CMND = cMND;
+        } while(CMND.length() != 12);
+        this.CMND = CMND;
     }
 
     public String getGioiTinh() {
@@ -99,6 +99,7 @@ public class Person{
 
     public void nhap(){
         setHoTen(hoTen);
+        setCMND(CMND);
         setGioiTinh(gioiTinh);
         setNamSinh(namSinh);
         System.out.println("Moi nhap email:");
