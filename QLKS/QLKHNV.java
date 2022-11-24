@@ -1,52 +1,111 @@
 package QLKS;
 
-
 import java.util.Scanner;
+/*import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;*/
 public class QLKHNV implements Docghifile {//Quan ly danh sach khach hang va nhan vien
-    private static Person ds[][];
-    Scanner sc = new Scanner(System.in);
+    static Person ds[];
+    private int n;
+    static Scanner sc= new Scanner(System.in);
+
+    public void menu(){
+        System.out.println("Chon doi tuong: ");
+        System.out.println("1: Khach hang");
+        System.out.println("2: Nhan vien");
+    }
+
     public void nhapDS(){
-        int op;
-        ds = new Person[2][];
-        System.out.println("Moi lua chon : \n1.Khach hang \n2.Nhan vien");
-        System.out.println("Nhap chon lua: ");
-        op = Integer.parseInt(sc.nextLine());
-        switch(op){
-            case 1:System.out.println("Nhap so phan tu cua danh sach khach hang : ");
-            int n = Integer.parseInt(sc.nextLine());
-            for(int i = 0;i<n;i++){
-                ds[0][i] = new Khachhang();
-                ds[0][i].nhap();
+        int chon;
+        System.out.print("Nhap so luong doi tuong : ");
+        n=Integer.parseInt(sc.nextLine());
+        ds=new Person[n];
+        for(int i=0; i<n;){
+            System.out.println("Moi chon doi tuong "+(i+1)+" :");
+            menu();
+            chon=Integer.parseInt(sc.nextLine());
+            switch(chon){
+                case 1:ds[i]=new Khachhang(); break;
+                case 2:ds[i]=new NhanVien() {
+
+                    @Override
+                    protected String loaiNhanVien() {
+                     
+                        
+                    }
+
+                    @Override
+                    public void tinhLuong() {
+                      
+                        
+                    }
+                    
+                    
+
+                    
+                }; break;
+                default: System.out.println("Lua chon khong hop le"); break;
             }
-            break;
-            case 2:System.out.println("Nhap so phan tu cua danh sach nhan vien : ");
-            int m = Integer.parseInt(sc.nextLine());
-            for(int j = 0;j<m;j++){
-                ds[1][j] = new NhanVien(){
-                @Override
-                protected String loaiNhanVien(){
-                    return null;
-                }
-                @Override
-                public void tinhLuong(){
-                }
-                };
-                ds[1][j].nhap();
+            if(chon<=3 && chon>=1){
+                ds[i].nhap();
+                i++;
             }
-            break;
-            case 3:break;
         }
-    }
-    @Override
-    public String readfile() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-    @Override
-    public void savefile(String fcontent) {
-        // TODO Auto-generated method stub
+
         
     }
 
+    
 
+    /*public void xuatDS(){
+        int chon;
+        for(int i=0; i<n;){
+            menu();
+            chon=Integer.parseInt(sc.nextLine());
+            switch(chon){
+                case 1:ds[i]=new Khachhang(); break;
+                case 2:ds[i]=new NhanVien() {
+
+                    @Override
+                    protected String loaiNhanVien() {
+                     
+                        return null;
+                    }
+
+                    @Override
+                    public void tinhLuong() {
+                      
+                        
+                    }
+                    
+                }; break;
+                default: System.out.println("Lua chon khong hop le"); break;
+            }
+            if(chon<=3 && chon>=1){
+                ds[i].xuat();
+                i++;
+            }
+        }
+    }*/
+     @Override
+    public String readfile() {
+       
+        return null;
+    }
+
+    @Override
+    public void savefile(String fcontent) {
+       
+        
+    }
+
+    public static void main(String[] args){
+        QLKHNV ob = new QLKHNV();
+        ob.nhapDS();
+        //ob.xuatDS();
+    }
+
+    
+    
+    
 }
