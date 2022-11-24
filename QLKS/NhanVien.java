@@ -13,10 +13,10 @@ public abstract class NhanVien extends Person {
     }
     
 
-    public NhanVien(String hoTen, String CMND, String gioiTinh, int namSinh, String email, String SDT, String maNV,long luong) {
+    public NhanVien(String hoTen, String CMND, String gioiTinh, int namSinh, String email, String SDT, String maNV) {
         super(hoTen, CMND, gioiTinh, namSinh, email, SDT);
         this.maNV = maNV;
-        this.luong = luong;
+       
     }
     
    
