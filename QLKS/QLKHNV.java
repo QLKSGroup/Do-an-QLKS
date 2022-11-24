@@ -1,5 +1,8 @@
 package QLKS;
 
+import QLKS.NhanVien;
+import QLKS.NhanVienFT;
+import QLKS.NhanVienPT;
 import java.util.Scanner;
 import java.util.Arrays;
 public class QLKHNV implements Docghifile {//Quan ly danh sach khach hang va nhan vien
@@ -22,7 +25,15 @@ public class QLKHNV implements Docghifile {//Quan ly danh sach khach hang va nha
             case 2:System.out.println("Nhap so phan tu cua danh sach nhan vien : ");
             int m = Integer.parseInt(sc.nextLine());
             for(int j = 0;j<m;j++){
-                ds[1][j] = new NhanVien();
+                ds[1][j] = new NhanVien(){
+                @Override
+                protected String loaiNhanVien(){
+                    return null;
+                }
+                @Override
+                public void tinhLuong(){
+                }
+                }
                 ds[1][j].nhap();
             }
             break;

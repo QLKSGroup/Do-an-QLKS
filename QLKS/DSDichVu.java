@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.qlks;
+package QLKS;
 //import java.io.Console;
 //import java.lang.System;
 //import java.Util.*;
