@@ -44,7 +44,7 @@ public class Person{
     }
 
     public void setCMND(String cMND) {
-        while (CMND.length() != 8){
+        while (CMND.length() != 12){
              System.out.println("Nhap CMND:");
             CMND = sc.nextLine();
         }
