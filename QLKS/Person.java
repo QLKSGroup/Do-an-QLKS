@@ -10,7 +10,6 @@ public class Person{
     private int namSinh; //năm sinh
     private String email; //email
     private String SDT; //SDT
-    private String diaChi; //Địa chỉ
     static Scanner sc = new Scanner(System.in);
 
     public Person() {
@@ -105,8 +104,6 @@ public class Person{
         System.out.println("Moi nhap email:");
         email = sc.nextLine();
         setSDT(SDT);
-        System.out.println("Moi nhap dia chi:");
-        diaChi = sc.nextLine();
     }
 
     @Override
