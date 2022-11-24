@@ -43,10 +43,10 @@ public class Person{
     }
 
     public void setCMND(String cMND) {
-        while (CMND.length() != 12){
+        do{
              System.out.println("Nhap CMND:");
             CMND = sc.nextLine();
-        }
+        } while(CMND.length() < 12);
         this.CMND = cMND;
     }
 
@@ -69,11 +69,11 @@ public class Person{
     }
 
     public void setNamSinh(int namSinh) {
-        for(;;){
-            if(2022-namSinh>=18) break;
-            System.out.println("Moi nhap lai nam sinh:");
+        do{
+            System.out.println("Moi nhap nam sinh:");
             namSinh=Integer.parseInt(sc.nextLine());
         }
+        while((2022 - namSinh) <18);
         this.namSinh = namSinh;
     }
 

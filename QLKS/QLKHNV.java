@@ -1,10 +1,7 @@
 package QLKS;
 
-import QLKS.NhanVien;
-import QLKS.NhanVienFT;
-import QLKS.NhanVienPT;
+
 import java.util.Scanner;
-import java.util.Arrays;
 public class QLKHNV implements Docghifile {//Quan ly danh sach khach hang va nhan vien
     private static Person ds[][];
     Scanner sc = new Scanner(System.in);
@@ -33,11 +30,23 @@ public class QLKHNV implements Docghifile {//Quan ly danh sach khach hang va nha
                 @Override
                 public void tinhLuong(){
                 }
-                }
+                };
                 ds[1][j].nhap();
             }
             break;
             case 3:break;
         }
     }
+    @Override
+    public String readfile() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+    @Override
+    public void savefile(String fcontent) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
 }
