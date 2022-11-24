@@ -42,12 +42,12 @@ public class Person{
         return CMND;
     }
 
-    public void setCMND(String cMND) {
+    public void setCMND(String CMND) {
         do {
-            System.out.print("Nhap CMND: ");
+            System.out.println("Nhap CMND: ");
             CMND = sc.nextLine();
            } while (CMND.length() != 12);
-        this.CMND = cMND;
+        this.CMND = CMND;
     }
 
     public String getGioiTinh() {
@@ -91,7 +91,7 @@ public class Person{
 
     public void setSDT(String SDT) {
         do {
-            System.out.print("Nhap SDT: ");
+            System.out.println("Nhap SDT: ");
             SDT = sc.nextLine();
            } while (SDT.length() != 10);
         this.SDT = SDT;
@@ -101,6 +101,7 @@ public class Person{
 
     public void nhap(){
         setHoTen(hoTen);
+        setCMND(CMND);
         setGioitinh(gioiTinh);
         setNamSinh(namSinh);
         System.out.println("Moi nhap email:");
