@@ -44,7 +44,7 @@ public class Person{
     }
 
     public void setCMND(String cMND) {
-        while (CMND.length() != 8){
+        while (CMND.length() != 12){
              System.out.println("Nhap CMND:");
             CMND = sc.nextLine();
         }
@@ -55,7 +55,7 @@ public class Person{
         return gioiTinh;
     }
     
-    public void setGioitinh(String gioiTinh) 
+    public void setGioiTinh(String gioiTinh) 
     {
         do 
         {
@@ -91,10 +91,10 @@ public class Person{
     }
 
     public void setSDT(String SDT) {
-        while (SDT.length() != 10) {
+        do {
             System.out.print("Nhap SDT: ");
             SDT = sc.nextLine();
-        }
+           } while (SDT.length() != 10);
         this.SDT = SDT;
     }
 
@@ -122,6 +122,7 @@ public class Person{
         return String.format("|%10s|%20s|%10.2f|%10d|%20s|10%s|%5s|", hoTen, CMND, gioiTinh, namSinh, email, SDT, diaChi);
     }
     
+
     public void xuat(){
         System.out.println(toString());
     }

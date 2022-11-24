@@ -25,6 +25,7 @@ public class Khachhang extends Person{
         this.maKH = maKH;
     }
 
+    @Override
     public void nhap(){
         super.nhap();
         System.out.println("Nhap ma khach hang: ");
@@ -33,7 +34,13 @@ public class Khachhang extends Person{
 
     @Override
     public String toString() {
-        return "Khachhang [Mã số =" + maKH + "]";
+        return super.toString() + String.format("|%10s|", maKH);
+    }
+
+    @Override
+    public void xuat(){
+        
+        System.out.println(toString());
     }
 
     

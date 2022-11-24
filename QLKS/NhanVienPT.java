@@ -7,8 +7,8 @@ public class NhanVienPT extends NhanVien {
     
 
     public NhanVienPT(String hoTen, String CMND, String gioiTinh, int namSinh, String email, String SDT, String maNV,
-            long luong, int gioLamViec) {
-        super(hoTen, CMND, gioiTinh, namSinh, email, SDT, maNV, luong);
+            int gioLamViec) {
+        super(hoTen, CMND, gioiTinh, namSinh, email, SDT, maNV);
         this.gioLamViec = gioLamViec;
     }
     
@@ -30,7 +30,5 @@ public class NhanVienPT extends NhanVien {
     public void tinhLuong() {
         luong = gioLamViec * 21000;   // 1h = 21.000d 
     }
-
-
 
 }

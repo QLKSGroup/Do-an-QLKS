@@ -8,8 +8,8 @@ public class NhanVienFT extends NhanVien {
 
     
     public NhanVienFT(String hoTen, String CMND, String gioiTinh, int namSinh, String email, String SDT, String maNV,
-            long luong, int ngayLamThem, String chucVu) {
-        super(hoTen, CMND, gioiTinh, namSinh, email, SDT, maNV, luong);
+             int ngayLamThem, String chucVu) {
+        super(hoTen, CMND, gioiTinh, namSinh, email, SDT, maNV);
         this.ngayLamThem = ngayLamThem;
         this.chucVu = chucVu;
     }
