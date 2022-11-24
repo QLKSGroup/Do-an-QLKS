@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Person{
 
-    private String hoTen; //Họ tên 
-    protected String CMND; //CMND 
-    private String gioiTinh; //giới tính
-    private int namSinh; //năm sinh
-    private String email; //email
-    private String SDT; //SDT
+    private String hoTen;
+    protected String CMND;
+    private String gioiTinh;
+    private int namSinh;
+    private String email;
+    private String SDT;
     static Scanner sc = new Scanner(System.in);
 
     public Person() {
@@ -43,10 +43,10 @@ public class Person{
     }
 
     public void setCMND(String cMND) {
-        do{
-             System.out.println("Nhap CMND:");
+        do {
+            System.out.print("Nhap CMND: ");
             CMND = sc.nextLine();
-        } while(CMND.length() < 12);
+           } while (CMND.length() != 12);
         this.CMND = cMND;
     }
 
@@ -54,7 +54,7 @@ public class Person{
         return gioiTinh;
     }
     
-    public void setGioiTinh(String gioiTinh) 
+    public void setGioitinh(String gioiTinh) 
     {
         do 
         {
@@ -73,7 +73,7 @@ public class Person{
             System.out.println("Moi nhap nam sinh:");
             namSinh=Integer.parseInt(sc.nextLine());
         }
-        while((2022 - namSinh) <18);
+        while(2022 - namSinh < 18 );
         this.namSinh = namSinh;
     }
 
@@ -97,9 +97,11 @@ public class Person{
         this.SDT = SDT;
     }
 
+
+
     public void nhap(){
         setHoTen(hoTen);
-        setGioiTinh(gioiTinh);
+        setGioitinh(gioiTinh);
         setNamSinh(namSinh);
         System.out.println("Moi nhap email:");
         email = sc.nextLine();
@@ -111,7 +113,6 @@ public class Person{
         return String.format("|%10s|%20s|%10.2f|%10d|%20s|%5s|", hoTen, CMND, gioiTinh, namSinh, email, SDT);
     }
     
-
     public void xuat(){
         System.out.println(toString());
     }
