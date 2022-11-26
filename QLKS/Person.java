@@ -1,3 +1,4 @@
+
 package QLKS;
 
 import java.util.Scanner;
@@ -109,13 +110,23 @@ public class Person{
         setSDT(SDT);
     }
 
+  
+    
     @Override
     public String toString() {
-        return String.format("|%10s|%20s|%10.2f|%10d|%20s|%5s|", hoTen, CMND, gioiTinh, namSinh, email, SDT);
+        return(String.format("|%10s|%20s|%15S|%10d|%35s|%10s|", hoTen, CMND, gioiTinh, namSinh, email, SDT));
     }
-    
+
     public void xuat(){
+        System.out.println("________________________________________________________________________________________________________________________");
+        System.out.println(String.format("|%15s|%20s|%15s|%10s|%35s|%10s|","Ho va ten","CMND","Gioi Tinh","Nam Sinh","Email","So Dien Thoai"));
+        System.out.println("________________________________________________________________________________________________________________________");
         System.out.println(toString());
+        System.out.println("________________________________________________________________________________________________________________________");
     }
+
+    
+    
 }
+
 
