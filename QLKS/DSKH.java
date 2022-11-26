@@ -140,14 +140,7 @@ public class DSKH extends Khachhang implements Docghifile{
         
     }
     
-    public static void main(String[] args){
-        DSKH kh = new DSKH();
-        kh.nhapDS();
-        kh.xuatDS();
-        //kh.editDS();;
-        kh.searchDS();
-        kh.deleteDS();
-    }
+    
     
     
 }
