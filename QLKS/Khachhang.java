@@ -34,14 +34,24 @@ public class Khachhang extends Person{
 
     @Override
     public String toString() {
-        return super.toString() + String.format("|%10s|", maKH);
+        return(String.format("%10s|", maKH));
     }
 
     @Override
     public void xuat(){
-        
-        System.out.println(toString());
+        System.out.println("___________________________________________________________________________________________________________________________________________");
+        System.out.println(String.format("|%15s|%20s|%15s|%10s|%35s|%10s|%10s|","Ho va ten","CMND","Gioi Tinh","Nam Sinh","Email","So Dien Thoai","Ma KH"));
+        System.out.println("___________________________________________________________________________________________________________________________________________");
+        System.out.println(super.toString()+toString());
+        System.out.println("___________________________________________________________________________________________________________________________________________");
     }
+    public static void main(String[] args) {
+        Khachhang kh = new Khachhang();
+        kh.nhap();
+        kh.xuat();
+    }
+
+    
 
     
 }
