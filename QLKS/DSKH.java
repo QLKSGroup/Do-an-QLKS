@@ -9,7 +9,7 @@ package QLKS;
  * @author downny
  */
 import java.util.Scanner;
-public class DSKH extends Khachhang implements Docghifile{
+public class DSKH implements Docghifile{
 
     static Person ds[];//khoi tao mang ds cua lop Person
     private int n;
