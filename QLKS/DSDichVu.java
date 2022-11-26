@@ -9,7 +9,6 @@ package QLKS;
 //import java.Util.*;
 import java.util.Scanner;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.*;
 /**
  *
@@ -19,7 +18,7 @@ public class DSDichVu implements Docghifile{
    
    private int n,m,l;
    private dichvu [][] Dsdv;
-   
+   Scanner sc = new Scanner(System.in);
    
    public DSDichVu(){
        this.Dsdv = new dichvu[3][100];
@@ -54,8 +53,7 @@ public class DSDichVu implements Docghifile{
    public void NhapDsdv(){
        //BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Nhap so luong thuc an:");
-        Scanner cn = new Scanner(System.in);
-        String sRead = cn.nextLine();// System.console().readLine();
+        String sRead = sc.nextLine();// System.console().readLine();
         this.n = Integer.parseInt(sRead);
 //        // nhap DL Tung Phan Tu cua Mang 
         for(int i=0;i<this.n;i++){ 
@@ -65,7 +63,7 @@ public class DSDichVu implements Docghifile{
         }
 //        
         System.out.println("Nhap so luong thuc uong:"); 
-        String sRead2 = cn.nextLine();//System.console().readLine();
+        String sRead2 = sc.nextLine();//System.console().readLine();
         this.m=Integer.parseInt(sRead2);
         System.out.println("Ban Da Nhap: "+this.m);
         for(int i=0;i<this.m;i++){
@@ -74,7 +72,7 @@ public class DSDichVu implements Docghifile{
             this.Dsdv[1][i]=dv;
         }
         System.out.println("Nhap so luong dich vu phong:");
-        String sRead3 = cn.nextLine();//System.console().readLine();
+        String sRead3 = sc.nextLine();//System.console().readLine();
         this.l=Integer.parseInt(sRead3);
         for(int i=0;i<this.l;i++){
             dichvu dv = new dichvu();
@@ -109,8 +107,7 @@ public class DSDichVu implements Docghifile{
     }
     public void ThemDsdv(){
         System.out.println("Them dich vu nao 0 la do an, 1 la do uong, 2 la dich vu khac:");
-        Scanner cn = new Scanner(System.in);
-        String sRead = cn.nextLine();
+        String sRead = sc.nextLine();
         int k=Integer.parseInt(sRead);
         if(k==0){
             this.n=this.n+1;
@@ -134,8 +131,7 @@ public class DSDichVu implements Docghifile{
     }
     public void XoaDsdv(){
         System.out.println("Ma dich vu can xoa:");
-        Scanner cn = new Scanner(System.in);
-        String sRead = cn.nextLine();
+        String sRead = sc.nextLine();
         String f=sRead;
         for(int i=0;i<this.n;i++){
             if(this.Dsdv[0][i].getMaDV().equals(f)){

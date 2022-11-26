@@ -1,20 +1,19 @@
 package QLKS;
 
 public abstract class NhanVien extends Person {
+    
     private String maNV; // ma so cua nhan vien
     protected long luong; // tien luong hang thang cua nhan vien
-
-    
-
    
-
     public NhanVien() {
+        super();
+
     }
 
-    public NhanVien(String hoTen, String CMND, String gioiTinh, int namSinh, String email, String SDT, String maNV) {
+    public NhanVien(String hoTen, String CMND, String gioiTinh, int namSinh, String email, String SDT, String maNV, int luong) {
         super(hoTen, CMND, gioiTinh, namSinh, email, SDT);
         this.maNV = maNV;
-       
+       this.luong = luong;
     }
     
     public String getMaNV() {
@@ -22,7 +21,19 @@ public abstract class NhanVien extends Person {
     }
 
     public void setMaNV(String maNV) {
+        do{
+            System.out.println("Nhap ma nhan vien: ");
+            maNV = sc.nextLine();
+        }
+        while(maNV.length() == 0);
         this.maNV = maNV;
+    }
+    public long getLuong() {
+        return luong;
+    }
+
+    public void setLuong(long luong) {
+        this.luong = luong;
     }
   
     protected abstract String loaiNhanVien();
@@ -32,7 +43,7 @@ public abstract class NhanVien extends Person {
     @Override
     public String toString() {
         super.toString();
-        return "NhanVien [maNV=" + maNV + ", loai nhan vien =" + loaiNhanVien() + ", luong=" + luong + "]";
+        return  maNV + "#" + loaiNhanVien() + "#" + luong ;
     }
 
     public void nhap(){
@@ -46,5 +57,7 @@ public abstract class NhanVien extends Person {
         super.xuat();
         System.out.println(toString());
     }
+
+  
 
 }

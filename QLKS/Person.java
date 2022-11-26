@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public class Person{
 
-    private String hoTen;
-    protected String CMND;
-    private String gioiTinh;
-    private int namSinh;
-    private String email;
-    private String SDT;
+    private String hoTen; //Họ tên 
+    protected String CMND; //CMND 
+    private String gioiTinh; //giới tính
+    private int namSinh; //năm sinh
+    private String email; //email
+    private String SDT; //SDT
     static Scanner sc = new Scanner(System.in);
 
     public Person() {
@@ -44,10 +44,10 @@ public class Person{
     }
 
     public void setCMND(String CMND) {
-        do {
-            System.out.println("Nhap CMND: ");
+        do{
+             System.out.println("Nhap CMND:");
             CMND = sc.nextLine();
-           } while (CMND.length() != 12);
+        } while(CMND.length() != 12);
         this.CMND = CMND;
     }
 
@@ -55,7 +55,7 @@ public class Person{
         return gioiTinh;
     }
     
-    public void setGioitinh(String gioiTinh) 
+    public void setGioiTinh(String gioiTinh) 
     {
         do 
         {
@@ -74,7 +74,7 @@ public class Person{
             System.out.println("Moi nhap nam sinh:");
             namSinh=Integer.parseInt(sc.nextLine());
         }
-        while(2022 - namSinh < 18 );
+        while((2022 - namSinh) <18);
         this.namSinh = namSinh;
     }
 
@@ -92,26 +92,24 @@ public class Person{
 
     public void setSDT(String SDT) {
         do {
-            System.out.println("Nhap SDT: ");
+            System.out.print("Nhap SDT: ");
             SDT = sc.nextLine();
            } while (SDT.length() != 10);
         this.SDT = SDT;
     }
 
 
-
     public void nhap(){
         setHoTen(hoTen);
         setCMND(CMND);
-        setGioitinh(gioiTinh);
+        setGioiTinh(gioiTinh);
         setNamSinh(namSinh);
         System.out.println("Moi nhap email:");
         email = sc.nextLine();
         setSDT(SDT);
     }
 
-  
-    
+
     @Override
     public String toString() {
         return(String.format("|%10s|%20s|%15S|%10d|%35s|%10s|", hoTen, CMND, gioiTinh, namSinh, email, SDT));
@@ -125,8 +123,9 @@ public class Person{
         System.out.println("________________________________________________________________________________________________________________________");
     }
 
-    
+
     
 }
+
 
 

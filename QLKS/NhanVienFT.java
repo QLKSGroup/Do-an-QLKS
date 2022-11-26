@@ -7,9 +7,13 @@ public class NhanVienFT extends NhanVien {
     private String chucVu; // chuc vu la Nhan Vien hoac Quan Ly
 
     
-    public NhanVienFT(String hoTen, String CMND, String gioiTinh, int namSinh, String email, String SDT, String maNV,
-             int ngayLamThem, String chucVu) {
-        super(hoTen, CMND, gioiTinh, namSinh, email, SDT, maNV);
+    public NhanVienFT(){
+        super();
+    }
+    
+    
+    public NhanVienFT(int ngayLamThem, String chucVu) {
+        super();
         this.ngayLamThem = ngayLamThem;
         this.chucVu = chucVu;
     }
@@ -31,14 +35,20 @@ public class NhanVienFT extends NhanVien {
 
 
     public void setChucVu(String chucVu) {
-        do {
-            System.out.println("Moi nhap chuc vu: ");
-            chucVu = sc.nextLine();
-        } while (chucVu != "Nhan vien " || chucVu != "Quan ly");
         this.chucVu = chucVu;
     }
 
 
+    @Override
+    public void nhap()
+    {
+        super.nhap();
+        System.out.println("Chuc vu: ");
+        chucVu = sc.nextLine();
+        System.out.println("So gio lam them: ");
+        ngayLamThem = sc.nextInt();
+        
+    }
     @Override
     protected String loaiNhanVien() {
             return chucVu + " toan thoi gian" +(ngayLamThem > 0 ?"(Co lam them ngay)":"");
@@ -46,14 +56,14 @@ public class NhanVienFT extends NhanVien {
 
     @Override
     public void tinhLuong() {
-        if (chucVu == "Nhan vien")
+        if (chucVu == "Quan ly") // 2. chuc vu la quan ly
             // 1 thang = 5.100.000d ; 1 ngay lam them = 200.000d
              luong = 5100000 + ngayLamThem * 200000;    
         else
             // 1 thang = 7.200.000 ; 1 ngay lam them = 280.000d
             luong = 7200000 + ngayLamThem *  280000;
-        
     }
+    
 
     
 }
