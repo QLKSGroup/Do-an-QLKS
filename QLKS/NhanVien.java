@@ -2,7 +2,7 @@ package QLKS;
 
 public abstract class NhanVien extends Person {
     
-    private String maNV; // ma so cua nhan vien
+    private int maNV; // ma so cua nhan vien
     protected long luong; // tien luong hang thang cua nhan vien
    
     public NhanVien() {
@@ -10,22 +10,22 @@ public abstract class NhanVien extends Person {
 
     }
 
-    public NhanVien(String hoTen, String CMND, String gioiTinh, int namSinh, String email, String SDT, String maNV, int luong) {
+    public NhanVien(String hoTen, String CMND, String gioiTinh, int namSinh, String email, String SDT, int maNV, int luong) {
         super(hoTen, CMND, gioiTinh, namSinh, email, SDT);
         this.maNV = maNV;
        this.luong = luong;
     }
     
-    public String getMaNV() {
+    public int getMaNV() {
         return maNV;
     }
 
-    public void setMaNV(String maNV) {
+    public void setMaNV(int maNV) {
         do{
-            System.out.println("Nhap ma nhan vien: ");
-            maNV = sc.nextLine();
+            System.out.print("\nMa nhan vien: ");
+            maNV = Integer.parseInt(sc.nextLine());
         }
-        while(maNV.length() == 0);
+        while(maNV < 0 ||  maNV > 1000);
         this.maNV = maNV;
     }
     public long getLuong() {
@@ -42,20 +42,21 @@ public abstract class NhanVien extends Person {
 
     @Override
     public String toString() {
-        super.toString();
-        return  maNV + "#" + loaiNhanVien() + "#" + luong ;
+       
+        return  super.toString() + (String.format("|%10d|%30s|%15d|", maNV, loaiNhanVien(), luong));
     }
 
     public void nhap(){
-        System.out.println("Nhap ma nhan vien: ");
-        maNV = sc.nextLine();
         super.nhap();
+        setMaNV(maNV);
     }
 
     
     public void xuat(){
-        super.xuat();
+       
+        System.out.println("_____________________________________________________________________________________________________________________________________");
         System.out.println(toString());
+        System.out.println("_____________________________________________________________________________________________________________________________________");
     }
 
   
