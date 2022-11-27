@@ -148,7 +148,7 @@ public class DSNV implements Docghifile{
         }
     }
   
-    public void searchAray(){
+    public void searchArray(){
         System.out.println("---------------Ban dang trong muc sua thong tin nhan vien--------------");
         System.out.println("So luong nhan vien ban muon sua la: ");
         int n = sc.nextInt();
