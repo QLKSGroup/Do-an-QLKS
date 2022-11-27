@@ -1,7 +1,7 @@
 package QLKS;
 
 public class Khachhang extends Person{
-    private String maKH;
+    public String maKH;
 
     public Khachhang(){
     }
@@ -17,6 +17,7 @@ public class Khachhang extends Person{
         this.maKH = maKH;
     }
 
+
     public String getmaKH() {
         return maKH;
     }
@@ -25,6 +26,11 @@ public class Khachhang extends Person{
         this.maKH = maKH;
     }
 
+    public void setNamSinh(String a)
+    {
+        namSinh=Integer.parseInt(a);
+    }
+    
     @Override
     public void nhap(){
         super.nhap();
