@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.*;
 public class DSKH implements Docghifile{
 
-    static Khachhang khachHang[];//khoi tao mang khachHang cua lop Person
+    static Khachhang khachHang[];//khoi tao mang khachHang 
     private static int n;
     public String editKH;//sua thong tin khach hang
     public String deleteKH;//xoa thong tin khach hang
