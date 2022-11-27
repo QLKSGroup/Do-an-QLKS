@@ -34,9 +34,9 @@ public class Person{
     {
         do 
         {
-            System.out.println("Nhap ho ten: ");
+            System.out.print("\nHo va ten: ");
             hoTen = sc.nextLine();
-        } while(hoTen.length()==0);
+        } while(hoTen.length()== 0);
         this.hoTen = hoTen;
     }
     public String getCMND() {
@@ -45,7 +45,7 @@ public class Person{
 
     public void setCMND(String CMND) {
         do{
-             System.out.println("Nhap CMND:");
+            System.out.print("\nSo CMND:");
             CMND = sc.nextLine();
         } while(CMND.length() != 12);
         this.CMND = CMND;
@@ -59,7 +59,7 @@ public class Person{
     {
         do 
         {
-            System.out.println("Nhap gioi tinh: ");
+            System.out.print("\nGioi tinh: ");
             gioiTinh = sc.nextLine();
         } while(!gioiTinh.equalsIgnoreCase("Nam")&&!gioiTinh.equalsIgnoreCase("Nu"));
         this.gioiTinh = gioiTinh;
@@ -71,7 +71,7 @@ public class Person{
 
     public void setNamSinh(int namSinh) {
         do{
-            System.out.println("Moi nhap nam sinh:");
+            System.out.print("\nNam sinh:");
             namSinh=Integer.parseInt(sc.nextLine());
         }
         while((2022 - namSinh) <18);
@@ -104,20 +104,21 @@ public class Person{
         setCMND(CMND);
         setGioiTinh(gioiTinh);
         setNamSinh(namSinh);
-        System.out.println("Moi nhap email:");
+        System.out.print("\nMoi nhap email: ");
         email = sc.nextLine();
-        setSDT(SDT);
+        System.out.print("\nSo dien thoai: ");
+        SDT = sc.nextLine();
     }
 
 
     @Override
     public String toString() {
-        return(String.format("|%10s|%20s|%15S|%10d|%35s|%10s|", hoTen, CMND, gioiTinh, namSinh, email, SDT));
+        return(String.format("|%15s|%15s|%10s|%10d|%25s|%10s|", hoTen, CMND, gioiTinh, namSinh, email, SDT));
     }
 
     public void xuat(){
         System.out.println("________________________________________________________________________________________________________________________");
-        System.out.println(String.format("|%15s|%20s|%15s|%10s|%35s|%10s|","Ho va ten","CMND","Gioi Tinh","Nam Sinh","Email","So Dien Thoai"));
+        System.out.println(String.format("|%15s|%15s|%10s|%10d|%25s|%10s|","Ho va ten","CMND","Gioi Tinh","Nam Sinh","Email","So Dien Thoai"));
         System.out.println("________________________________________________________________________________________________________________________");
         System.out.println(toString());
         System.out.println("________________________________________________________________________________________________________________________");

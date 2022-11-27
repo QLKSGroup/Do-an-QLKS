@@ -35,6 +35,12 @@ public class NhanVienFT extends NhanVien {
 
 
     public void setChucVu(String chucVu) {
+        do{
+            System.out.print("\nChuc vu: ");
+            chucVu = sc.nextLine();
+        }
+        while(!chucVu.equalsIgnoreCase("Quan ly") && !chucVu.equalsIgnoreCase("Nhan vien"));
+       
         this.chucVu = chucVu;
     }
 
@@ -43,9 +49,8 @@ public class NhanVienFT extends NhanVien {
     public void nhap()
     {
         super.nhap();
-        System.out.println("Chuc vu: ");
-        chucVu = sc.nextLine();
-        System.out.println("So gio lam them: ");
+        setChucVu(chucVu);
+        System.out.print("\nSo gio lam them: ");
         ngayLamThem = sc.nextInt();
         
     }
