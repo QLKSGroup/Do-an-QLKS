@@ -1,7 +1,7 @@
 package QLKS;
 
 public class Khachhang extends Person{
-    public String maKH;
+    private String maKH;
 
     public Khachhang(){
     }
@@ -40,20 +40,19 @@ public class Khachhang extends Person{
 
     @Override
     public String toString() {
-        return(String.format("%10s|", maKH));
+        return(String.format("%-10s|", maKH));
     }
 
     @Override
     public void xuat(){
-        System.out.println("___________________________________________________________________________________________________________________________________________");
-        System.out.println(super.toString()+toString());
-        System.out.println("___________________________________________________________________________________________________________________________________________");
+        System.out.println(super.toString() + toString());
     }
     public static void main(String[] args) {
         Khachhang kh = new Khachhang();
         kh.nhap();
         kh.xuat();
     }
+
 
     
 
