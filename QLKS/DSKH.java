@@ -83,7 +83,7 @@ public class DSKH implements Docghifile{
                         case 1:khachHang[i].setmaKH(sc.nextLine());break;
                         case 2:khachHang[i].setHoTen(sc.nextLine());break;
                         case 3:khachHang[i].setCMND(sc.nextLine());break;
-                        case 4:khachHang[i].setGioitinh(sc.nextLine());break;
+                        case 4:khachHang[i].setGioiTinh(sc.nextLine());break;
                         case 5:khachHang[i].setNamSinh(sc.nextInt());break;
                         case 6:khachHang[i].setEmail(sc.nextLine());break;
                         case 7:khachHang[i].setSDT(sc.nextLine());break;
@@ -163,7 +163,7 @@ public class DSKH implements Docghifile{
                 khachHang[i].setHoTen(s[1]);
                 khachHang[i].setCMND(s[2]);
                 khachHang[i].setNamSinh(s[3]);
-                khachHang[i].setGioitinh(s[4]);
+                khachHang[i].setGioiTinh(s[4]);
                 khachHang[i].setEmail(s[5]);
                 khachHang[i].setSDT(s[6]);
             }

@@ -57,7 +57,7 @@ public class Person{
         return gioiTinh;
     }
     
-    public void setGioitinh(String gioiTinh) 
+    public void setGioiTinh(String gioiTinh) 
     {
         do 
         {
@@ -106,7 +106,7 @@ public class Person{
     public void nhap(){
         setHoTen(hoTen);
         setCMND(CMND);
-        setGioitinh(gioiTinh);
+        setGioiTinh(gioiTinh);
         setNamSinh(namSinh);
         System.out.print("\nMoi nhap email: ");
         email = sc.nextLine();
