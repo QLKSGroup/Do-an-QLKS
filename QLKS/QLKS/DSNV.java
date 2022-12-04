@@ -240,7 +240,7 @@ public class DSNV implements Docghifile{
     public void savefile(String fcontent) {
          String fContent = "";
          try {
-             FileWriter fw = new FileWriter("C:\\Users\\Duyen\\OneDrive\\Desktop\\QLKS\\QLKS\\DSNhanVien.txt");
+             FileWriter fw = new FileWriter("C:\\Users\\Duyen\\OneDrive\\Desktop\\QLKS\\QLKS\\QLKS\\DSNhanVien.txt");
              BufferedWriter bw = new BufferedWriter(fw);
              for(int i = 0 ; i < tongNhanVien ; i++){
                  if(nhanVien[i]!=null){
