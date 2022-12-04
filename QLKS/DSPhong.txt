@@ -1,0 +1,16 @@
+3
+4
+101 Thuong 50000 !Trong 2
+102 Thuong 50000 Trong 2
+103 Vip 10000 Trong 2
+104 Vip 10000 Trong 2
+4
+201 Thuong 70000 Trong 3
+202 Thuong 70000 Trong 3
+203 Vip 140000 Trong 3
+204 Vip 140000 Trong 3
+4
+301 Thuong 140000 Trong 6
+302 Thuong 140000 Trong 6
+303 Vip 320000 Trong 6
+304 Vip 320000 Trong 6

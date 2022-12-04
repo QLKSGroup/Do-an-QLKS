@@ -1,0 +1,13 @@
+TA101###Hu Tieu###50000
+TA102###Mi###50000
+TA103###Oc huong xao pho mai###50000
+TA104###Lau Thai###200000
+TA100###Lau cua###200000
+TU100###Coaca cola###15000
+TU101###Pepsi###15000
+TU102###Nuoc suoi###10000
+TU103###Chanh Tuoi###20000
+TU104###Cam Mat Ong###25000
+P101###Giat chan, ga###25000
+P102###Tam suoi###200000
+P103###Muon do boi###50000
