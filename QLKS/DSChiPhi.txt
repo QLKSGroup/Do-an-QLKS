@@ -1,0 +1,5 @@
+1   lau san   30000   Co
+2   thay man   20000   Co
+3   don dep   5000   Co
+4   Vo man hinh   50000   Khong
+5   Thay bong den   50000   Co

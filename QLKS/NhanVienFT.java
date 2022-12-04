@@ -19,12 +19,16 @@ public class NhanVienFT extends NhanVien {
     }
 
     
-    public int getNgayLamThem() {
+    public int getngayLamThem() {
         return ngayLamThem;
     }
 
 
-    public void setNgayLamThem(int ngayLamThem) {
+    public void setngayLamThem(int ngayLamThem) {
+        do{
+            System.out.print("\nSo ngay lam them: ");
+            ngayLamThem = sc.nextInt();
+        }while(ngayLamThem < 0);
         this.ngayLamThem = ngayLamThem;
     }
 
@@ -38,9 +42,7 @@ public class NhanVienFT extends NhanVien {
         do{
             System.out.print("\nChuc vu: ");
             chucVu = sc.nextLine();
-        }
-        while(!chucVu.equalsIgnoreCase("Quan ly") && !chucVu.equalsIgnoreCase("Nhan vien"));
-       
+        }while(!chucVu.equalsIgnoreCase("Quan ly")&&!chucVu.equalsIgnoreCase("Nhan vien"));
         this.chucVu = chucVu;
     }
 
@@ -50,8 +52,7 @@ public class NhanVienFT extends NhanVien {
     {
         super.nhap();
         setChucVu(chucVu);
-        System.out.print("\nSo gio lam them: ");
-        ngayLamThem = sc.nextInt();
+        setngayLamThem(ngayLamThem);
         
     }
     @Override
