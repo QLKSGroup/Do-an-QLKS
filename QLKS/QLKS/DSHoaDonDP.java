@@ -7,7 +7,6 @@ public class DSHoaDonDP implements Docghifile{
     private static HoaDonDP dshd[];
     private static int n;
     private static Gia tongthu=new Gia();
-    private Khachhang KH;
     public void luachon(){
         System.out.println("----SUA DOI DANH SACH HOA DON----");
         System.out.println("1 -- Them vao danh sach --");
@@ -157,7 +156,6 @@ public class DSHoaDonDP implements Docghifile{
     }
     @Override
     public String readfile(){
-        String fcontent="";
         n=readfilelayn();
         dshd=new HoaDonDP[n];
         try{
@@ -168,29 +166,50 @@ public class DSHoaDonDP implements Docghifile{
                 if((fc=br.readLine())!=null){
                     if(!(fc.equals(""))){
                         String []Value=fc.split("   ");
-
-                        dshd[n] =new HoaDonDP();
-                        dshd[n].setMaHD(Value[1]);
-                        dshd[n].setNgayVao(Value[2]);
-                        dshd[n].setNgayRa(Value[3]);
-                        dshd[n].setMaPhong(Value[4]);
-                        dshd[n].setTotal(Value[5]);
-                        dshd[n].KH.setHoTen(Value[5]);
-                        n++;
+                        dshd[i]=new HoaDonDP();
+                        dshd[i].setMaHD(Value[1]);
+                        dshd[i].setNgayVao(Value[2]);
+                        dshd[i].setNgayRa(Value[3]);
+                        dshd[i].setMaPhong(Value[4]);
+                        dshd[i].setTotal(Value[5]);
+                        dshd[i].KH.setHoTen(Value[6]);
+                        dshd[i].ghepdsdv(Value[7]);
                 }
-                    
+ 
                 }
+            }
+            br.close();
+            fr.close();  
         }catch(IOException ex){
             
         }
-        return fc;
+        return "SOS";
     }
     @Override
     public void savefile(String fcontent){
+        String fContent = "";
         try{
             FileWriter fsave=new FileWriter("C:\\Users\\downny\\Desktop\\QLKS\\QLKS\\QLKS\\DSHoaDonDP.txt");
+            BufferedWriter fs = new BufferedWriter(fsave);
+            for(int i=0; i<n; i++){
+                if(dshd[i]!=null){
+                    fContent=dshd[i].getMaHD()+"###"+dshd[i].getNgayRa()+"###"+dshd[i].getNgayVao()+"###"+dshd[i].getMaPhong()+"###"+dshd[i].getTotal()+"###"+dshd[i].KH.getHoten()+"###"+dshd[i].ghepdsdv();
+                    fs.write(fContent);
+                    fs.newLine();
+                }
+            }
+            fs.close();
+            fs.close();
         }catch(IOException ex){
             
         }
-    }*/
+    }
+
+    public static void main(String[] args) throws ParseException{
+        DSHoaDonDP ds = new DSHoaDonDP();
+        ds.nhapDSHD();
+        ds.xuatDSHD();
+        ds.savefile("");
+        ds.readfile();
+    }
 }

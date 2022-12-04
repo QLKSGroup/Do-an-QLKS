@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class HoaDonDP {
     private String ngayVao;
     private String ngayRa;
-    private Khachhang KH;
+    Khachhang KH;
     private String dsDV[];
     private int n;
     private int sl[];
@@ -290,6 +290,18 @@ public class HoaDonDP {
         themDV();
         traPhong();
     }
+
+    public void setMaHD(String a)
+    {
+        maHD = Long.parseLong(a);
+    }
+    
+    public void setTotal(String a) {
+        total = Long.parseLong(a);
+    }
+
+    
+
     public String ghepdsdv(){
         String s="";
         for(int i=0; i<n; i++){
@@ -298,8 +310,19 @@ public class HoaDonDP {
         }
         return s;
     }
+
+    public void ghepdsdv(String a){
+
+    }
+
     @Override
     public String toString(){
         return String.format("| %-10s | %-20s | %-20s | %-10s | %-40s | %-40s | %-10d |\n", maHD, ngayVao, ngayRa, maPhong, KH.getHoten(), ghepdsdv(),(totalDV+totalP));
+    }
+
+    public static void main(String[] args) throws ParseException{
+        HoaDonDP hd = new HoaDonDP();
+        hd.nhapTTHD();
+        hd.toString();
     }
 }
