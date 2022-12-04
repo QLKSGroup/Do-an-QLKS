@@ -25,10 +25,6 @@ public class DSKH implements Docghifile{
     public static Khachhang[] getKhachHang() {
         return khachHang;
     }
-
-    public static int getN() {
-        return n;
-    }
     
 
     public void nhapDS(){
@@ -45,64 +41,14 @@ public class DSKH implements Docghifile{
 
     public void xuatDS(){
         System.out.println("=============================================DANH SACH KHACH HANG============================================");
+        System.out.println(String.format("|%-25s|%-15s|%-10s|%-10s|%-25s|%-10s|%-10s|","Ho va ten","CMND","Gioi Tinh","Nam Sinh","Email","So Dien Thoai","Ma Khach Hang"));
         for(int i=0;i<n;i++){
             if(khachHang[i]!=null)
                 khachHang[i].xuat();
         }
     }
 
-    /*public void editkhachHang(){
-        int e;
-        Khachhang k[];
-        k = new Khachhang[n];
-        System.out.println("Vui long nhap ten khach hang can thay doi thong tin: ");
-        editKH = sc.nextLine();
-        System.out.println("Ban muon thay doi thong tin nao ?");
-        System.out.println("1.Ma Khach Hang");
-        System.out.println("2.CMND");
-        System.out.println("3.Gioi Tinh");
-        System.out.println("4.Nam Sinh");
-        System.out.println("5.Email");
-        System.out.println("6.So Dien Thoai");
-        System.out.print("Lua chon cua ban: ");
-        e=Integer.parseInt(sc.nextLine());
-        while (e<1 || e>5){
-            System.out.print("Hay Chon Lai: ");
-            e=Integer.parseInt(sc.nextLine());
-        }
-        e=Integer.parseInt(sc.nextLine());
-        for (int i=0;i<khachHang.length;i++){
-            
-            if (editKH.equals(khachHang[i].getHoten())){
-                if (e==1){   
-                    k[i]=new Khachhang();
-                    System.out.print("Nhap thay doi: ");
-                    k[i].setmaKH(sc.nextLine());
-                }
-                else if (e==2){
-                    System.out.print("Nhap thay doi: ");
-                    k[i].setCMND(sc.nextLine());
-                }
-                else if (e==3){
-                    System.out.print("Nhap thay doi: ");
-                    k[i].setGioitinh(sc.nextLine());
-                }
-                else if (e==4){
-                    System.out.print("Nhap thay doi: ");
-                    k[i].setNamSinh(sc.nextInt());
-                }
-                else if (e==5){
-                    System.out.print("Nhap thay doi: ");
-                    k[i].setEmail(sc.nextLine());
-                }
-                else {
-                    System.out.print("Nhap thay doi: ");
-                    k[i].setSDT(sc.nextLine());
-                }
-                
-            }   
-        }
-    }*/
+
     public void addDS(){
         
         System.out.println("Nhap so luong khach hang ban muon them : ");
@@ -132,22 +78,22 @@ public class DSKH implements Docghifile{
             n=1;
             khachHang=new Khachhang[1];
             khachHang[0]=new Khachhang();
-//            khMoi.setHoTen("");
-//            khMoi.setCMND("");
-//            khMoi.setGioiTinh("");
-//            khMoi.setNamSinh("");
-//            khMoi.setSDT("");
-//            khMoi.setEmail();
-//            String maKH="0";
-//            khMoi.setmaKH(maKH);
+            khMoi.setHoTen("");
+            khMoi.setCMND("");
+            khMoi.setGioiTinh("");
+            khMoi.setNamSinh("");
+            khMoi.setSDT("");
+            khMoi.setEmail();
+          String maKH="0";
+            khMoi.setmaKH(maKH);
             khachHang[0]=khMoi;
             savefile("");
         }else{
-//            khMoi.setHoTen("");
+            khMoi.setHoTen("");
             int count=0;
             do{
                 count=0;
-//                khMoi.setCMND("");
+                khMoi.setCMND("");
                 for (int i=0;i<khachHang.length;i++){
                     if (khachHang[i].getCMND().equalsIgnoreCase(khMoi.getCMND())==true){
                         count =1;
@@ -155,12 +101,12 @@ public class DSKH implements Docghifile{
                 }
                 if (count==1) System.out.println("CMND da ton tai!\nNhap lai CMND:");
             }while (count==1);
-//            khMoi.setGioiTinh("");
-//            khMoi.setNamSinh("");
-//            khMoi.setSDT("");
-//            khMoi.setEmail();
-//            //String maKH=String.valueOf(1+Integer.parseInt(khachHang[n].getmaKH()));
-//            khMoi.setmaKH("1");
+            khMoi.setGioiTinh("");
+            khMoi.setNamSinh("");
+            khMoi.setSDT("");
+            khMoi.setEmail();
+            //String maKH=String.valueOf(1+Integer.parseInt(khachHang[n].getmaKH()));
+            khMoi.setmaKH("1");
             if (count==0){
                 Khachhang newArray[] = new Khachhang[n];
                 for(int i = 0; i<n; i++){
@@ -262,14 +208,13 @@ public class DSKH implements Docghifile{
         if(check(maKH)==false) {
             System.out.println("Khong tim thay ma khach hang!");
         } else {
-            
             for (int i=0; i< khachHang.length;) {
-                if(khachHang[i].getmaKH() == maKH) {
+                if(maKH.equalsIgnoreCase(khachHang[i].getmaKH())) {
                     for(int j=i; j < khachHang.length-1; j++)
                         khachHang[j]=khachHang[j+1];  
                 } 
-                khachHang=Arrays.copyOf(khachHang, khachHang.length-1); 
-                break;
+                khachHang=Arrays.copyOf(khachHang, khachHang.length-1);
+                break; 
             }
             System.out.println("Da xoa!");
             }
@@ -277,7 +222,7 @@ public class DSKH implements Docghifile{
     public int readfilelayn(){
         n=0;
         try{
-            FileReader fr=new FileReader("C:\\Users\\User\\OneDrive - 101203\\Desktop\\SGU Study\\HKIII_SGU_2022-2023\\Lập trình hướng đối tượng\\DSKhachhang.txt");
+            FileReader fr=new FileReader("C:\\Users\\downny\\Desktop\\QLKS\\QLKS\\QLKS\\DSKhachhang.txt");
             BufferedReader br=new BufferedReader(fr);
             while(br.readLine()!=null){
                 n++;
@@ -297,10 +242,9 @@ public class DSKH implements Docghifile{
         n=readfilelayn();
         khachHang=new Khachhang[n];
         try {
-            FileReader fr = new FileReader("C:\\Users\\User\\OneDrive - 101203\\Desktop\\SGU Study\\HKIII_SGU_2022-2023\\Lập trình hướng đối tượng\\DSKhachhang.txt");
+            FileReader fr = new FileReader("C:\\Users\\downny\\Desktop\\QLKS\\QLKS\\QLKS\\DSKhachhang.txt");
             BufferedReader  br= new BufferedReader(fr);
             String line;
-            int namSinh;
             for(int i=0; i<n; i++){
                 if((line=br.readLine())!=null){
                     if(!(line.equals(""))){
@@ -316,7 +260,6 @@ public class DSKH implements Docghifile{
                         khachHang[i].setSDT(s[6]);
                         //System.out.print(khachHang[i].getHoten()+" "+khachHang[i].getCMND()+" "+khachHang[i].getmaKH()+" "+khachHang[i].getGioiTinh()+" "+khachHang[i].getNamSinh()+" "+khachHang[i].getEmail()+" "+khachHang[i].getSDT());
                     }
-                    
                 }
             }
             br.close();
@@ -332,7 +275,7 @@ public class DSKH implements Docghifile{
    public void savefile(String fcontent) {
         String fContent = "";
         try {
-            FileWriter fw = new FileWriter("C:\\Users\\User\\OneDrive - 101203\\Desktop\\SGU Study\\HKIII_SGU_2022-2023\\Lập trình hướng đối tượng\\DSKhachhang.txt");
+            FileWriter fw = new FileWriter("C:\\Users\\downny\\Desktop\\QLKS\\QLKS\\QLKS\\DSKhachhang.txt");
             BufferedWriter bw = new BufferedWriter(fw);
             for(int i=0; i<n; i++){
                 if(khachHang[i]!=null){
@@ -348,19 +291,19 @@ public class DSKH implements Docghifile{
         }
     }
     
-    /*public static void main(String[] args){
+    public static void main(String[] args){
         DSKH kh = new DSKH();
         kh.nhapDS();
-        //kh.xuatDS();
-        //kh.searchkhachHang();
-        kh.addDS(n);
         kh.xuatDS();
+        //kh.searchkhachHang();
+       // kh.addDS(n);
+        //kh.xuatDS();
         //kh.deletekhachHang();
         //kh.xuatkhachHang();
         kh.savefile("");
         kh.readfile();
         
-    }*/
+    }
     
     
 }

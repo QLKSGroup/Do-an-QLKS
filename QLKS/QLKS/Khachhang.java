@@ -1,7 +1,7 @@
 package QLKS;
 
 public class Khachhang extends Person{
-    public static String maKH;
+    public String maKH;
 
     public Khachhang(){
     }
@@ -15,22 +15,22 @@ public class Khachhang extends Person{
         this.maKH = maKH;
     }
 
-    public String getFileLine() 
-    {
-        return getmaKH()+","+getHoten()+","+getCMND()+","+getGioiTinh()+","+getNamSinh()+","+getEmail()+","+getSDT()+"\n";
-    }
     public String getmaKH() {
         return maKH;
     }
     public void setmaKH(String maKH){
+        do{
+            System.out.println("Nhap ma khach hang:");
+           maKH = sc.nextLine();
+       } while(maKH.length() != 3);
         this.maKH=maKH;
     }
-    public void nhapmaKH(String maKH) {
+    /*public void nhapmaKH(String maKH) {
         int num=1;
         int ma=Integer.parseInt(maKH)+num;
         this.maKH = String.valueOf(ma);
         num++;
-    }
+    }*/
 
     public void setNamSinh(String a)
     {
@@ -40,12 +40,12 @@ public class Khachhang extends Person{
     @Override
     public void nhap(){
         super.nhap();
-        setmaKH("1");
+        setmaKH(maKH);
     }
 
     @Override
     public String toString() {
-        return(String.format("%-10s|", maKH));
+        return(String.format("%-13s|", maKH));
     }
 
     @Override
