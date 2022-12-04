@@ -6,7 +6,6 @@ package QLKS;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
@@ -17,9 +16,9 @@ import java.util.Scanner;
 public class HoaDonDP {
     private String ngayVao;
     private String ngayRa;
-    private static Khachhang KH;
-    private static String dsDV[];
-    private static int n;
+    private Khachhang KH;
+    private String dsDV[];
+    private int n;
     private int sl[];
     private static long soHD=-1;
     private long maHD=0;
@@ -27,7 +26,7 @@ public class HoaDonDP {
     private long totalDV;
     private long totalP;
     private long total;
-    private static Scanner sc= new Scanner(System.in);
+    static Scanner sc= new Scanner(System.in);
     public HoaDonDP(){
         
     }
@@ -49,18 +48,7 @@ public class HoaDonDP {
         }else{
             KH.xuat();
         }
-        SoDoPhong sdp=new SoDoPhong();
-        sdp.readfile();
-        sdp.xuatDSPhong();
-        System.out.println("Ma Phong can dat:");
-        int i=0;
-        do
-        {
-        maPhong=sc.nextLine();
-        i=sdp.timPhong(maPhong);
-        if (i==0) System.out.println("Nhap lai ma phong :"); sdp.savefile("");
-        }
-        while (i==0);
+        setPhong();
     }
     public void traPhong() throws ParseException
     {
@@ -70,10 +58,14 @@ public class HoaDonDP {
         SoDoPhong sdp=new SoDoPhong();
         sdp.readfile();
         sdp.traPhong(maPhong);
+        tinhtienPhong();
+    }
+    public void tinhtienPhong() throws ParseException{
+        SoDoPhong sdp=new SoDoPhong();
+        sdp.readfile();
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date1 = df.parse(getNgayVao());
         Date date2=df.parse(getNgayRa());
-        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
         c1.setTime(date1);
@@ -86,52 +78,68 @@ public class HoaDonDP {
         long diffHours = diff / (60 * 60 * 1000);
         totalP=diffHours*sdp.getGiaPhong(maPhong);
     }
-    
+    public void setPhong(){
+        SoDoPhong sdp=new SoDoPhong();
+        sdp.readfile();
+        sdp.xuatDSPhong();
+        System.out.println("Ma Phong can dat:");
+        int i=0;
+        do
+        {
+        maPhong=sc.nextLine();
+        i=sdp.timPhong(maPhong);
+        if (i==0) System.out.println("Nhap lai ma phong :"); sdp.savefile("");
+        }while (i==0);
+    }
+    public void setttphong(String ma){
+        SoDoPhong sdp=new SoDoPhong();
+        sdp.traPhong(ma);
+    }
     
     public void themDV(){
-        System.out.println("------> DICH VU <------");
-       System.out.println("Nhap Ma Dich Vu:");
-       String maDv;
-       DSDichVu ds=new DSDichVu();
-       ds.readfile();
-       ds.XuatDsdv();
-       do{
-            maDv=sc.nextLine();
-            if(ds.timDV(maDv)==0) System.out.println("Khong tim thay Ma DV!");
-       }while (ds.timDV(maDv)==0);
-       if(dsDV==null){
-            n=1;
-            dsDV =new String[1];
-            dsDV[0]=new String();
-            dsDV[0]=maDv;
-       }
-       else{
-           int count=1;
-           for (int i=0;i<n;i++){
-                    if(dsDV[i].equalsIgnoreCase(maDv)==true){
-                        count =0;
-                    }
+        String x;
+        DSDichVu ds=new DSDichVu();
+        ds.readfile();
+        do{
+            System.out.println("------> DICH VU <------");
+            System.out.println("Nhap Ma Dich Vu:");
+            String maDv;
+            ds.XuatDsdv();
+            do{
+                maDv=sc.nextLine();
+                if(ds.timDV(maDv)==0) System.out.println("Khong tim thay Ma DV!");
+            }while (ds.timDV(maDv)==0);
+            if(dsDV==null){
+                n=1;
+                dsDV =new String[1];
+                dsDV[0]=new String();
+                dsDV[0]=maDv;
+            }else{
+                n=n+1;
+                String dsDV2[]=new String[n];
+                for(int i=0; i<n-1; i++){
+                    dsDV2[i]=dsDV[i];
                 }
-            if (count ==1) n=n+1;
-            String dsDV2[]=new String[n];
-            for(int i=0; i<n-1; i++){
-                dsDV2[i]=dsDV[i];
-            }
-            for(int i=n-1; i<n; i++){
-                if(dsDV[i].equalsIgnoreCase(maDv)==true){
-                    sl[i]=sl[i]+1;
-                }else{
+                for(int i=n-1; i<n; i++){                        
                     dsDV2[i]=new String();
                     dsDV2[i]=maDv;
                 }
+                dsDV=new String[n];
+                for(int i=0;i<n;i++){
+                    dsDV[i]=dsDV2[i];
+                }
             }
-            dsDV=new String[n];
-            for (int i=0;i<n;i++){
-                dsDV[i]=dsDV2[i];
-            }
-            
-        }
-       for(int i=0; i<n; i++){
+            System.out.println("Ban co muon them dich vu su dung khong ?");
+            System.out.println("1 -- Co --");
+            System.out.println("2 -- Khong --");
+            x=sc.nextLine();
+        }while(Integer.parseInt(x)==1);
+        tinhtienDV();
+    }
+    public void tinhtienDV(){
+        DSDichVu ds=new DSDichVu();
+        ds.readfile();
+        for(int i=0; i<n; i++){
            if(ds.timDV(dsDV[i])==1){
                totalDV=totalDV+ds.timDVlaygia(dsDV[i]);
            }
@@ -277,20 +285,21 @@ public class HoaDonDP {
     public void setTotal(long total) {
         this.total = total;
     }
-    public void nhapTT() throws ParseException{
+    public void nhapTTHD() throws ParseException{
         datPhong();
         themDV();
         traPhong();
     }
     public String ghepdsdv(){
-        String s=null;
+        String s="";
         for(int i=0; i<n; i++){
             s=s+dsDV[i];
+            s=s+" ";
         }
         return s;
     }
     @Override
     public String toString(){
-        return String.format("| %-5s | %-10s | %-10s | %-5s | %-30s | %-30s | %-10d |\n", maHD, ngayVao, ngayRa, maPhong, KH.getHoten(), ghepdsdv(),(totalDV+totalP));
+        return String.format("| %-10s | %-20s | %-20s | %-10s | %-40s | %-40s | %-10d |\n", maHD, ngayVao, ngayRa, maPhong, KH.getHoten(), ghepdsdv(),(totalDV+totalP));
     }
 }

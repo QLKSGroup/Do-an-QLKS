@@ -2,9 +2,9 @@ package QLKS;
 import java.util.Scanner;
 import java.io.*;
 public class DSChiPhiPhatSinh implements Docghifile{
-    private static ChiPhiPhatSinh ds[];
+    private ChiPhiPhatSinh ds[];
     private static int n;
-    private static Gia tongchi=new Gia();
+    private Gia tongchi=new Gia();
     static Scanner sc= new Scanner(System.in);
     public DSChiPhiPhatSinh(){
         

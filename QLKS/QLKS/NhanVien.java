@@ -47,7 +47,6 @@ public abstract class NhanVien extends Person {
     }
 
     public void nhap(){
-        
         super.nhap();
         setMaNV(maNV);
     }

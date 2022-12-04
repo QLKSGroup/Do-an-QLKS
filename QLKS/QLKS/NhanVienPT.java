@@ -24,7 +24,7 @@ public class NhanVienPT extends NhanVien {
     @Override
     public void nhap(){
         super.nhap();
-        System.out.println("\nNhap so gio lam them: ");
+        System.out.println("Nhap so gio lam them: ");
         gioLamViec = sc.nextInt();
     }
 
