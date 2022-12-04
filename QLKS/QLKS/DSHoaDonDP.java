@@ -7,6 +7,7 @@ public class DSHoaDonDP implements Docghifile{
     private static HoaDonDP dshd[];
     private static int n;
     private static Gia tongthu=new Gia();
+    private Khachhang KH;
     public void luachon(){
         System.out.println("----SUA DOI DANH SACH HOA DON----");
         System.out.println("1 -- Them vao danh sach --");
@@ -156,13 +157,29 @@ public class DSHoaDonDP implements Docghifile{
     }
     @Override
     public String readfile(){
-        String fc="";
-        readfilelayn();
+        String fcontent="";
+        n=readfilelayn();
         dshd=new HoaDonDP[n];
         try{
             FileReader fr=new FileReader("C:\\Users\\downny\\Desktop\\QLKS\\QLKS\\QLKS\\DSHoaDonDP.txt");
             BufferedReader br=new BufferedReader(fr);
-            
+            String fc;
+            for(int i=0; i<n; i++){
+                if((fc=br.readLine())!=null){
+                    if(!(fc.equals(""))){
+                        String []Value=fc.split("   ");
+
+                        dshd[n] =new HoaDonDP();
+                        dshd[n].setMaHD(Value[1]);
+                        dshd[n].setNgayVao(Value[2]);
+                        dshd[n].setNgayRa(Value[3]);
+                        dshd[n].setMaPhong(Value[4]);
+                        dshd[n].setTotal(Value[5]);
+                        dshd[n].KH.setHoTen(Value[5]);
+                        n++;
+                }
+                    
+                }
         }catch(IOException ex){
             
         }
@@ -171,9 +188,9 @@ public class DSHoaDonDP implements Docghifile{
     @Override
     public void savefile(String fcontent){
         try{
-            FileWriter fsave=new FileWriter("C:\\Users\\downny\\Desktop\\QLKS\\QLKS\\QLKS\\DSChiPhi.txt");
+            FileWriter fsave=new FileWriter("C:\\Users\\downny\\Desktop\\QLKS\\QLKS\\QLKS\\DSHoaDonDP.txt");
         }catch(IOException ex){
             
         }
-    }
+    }*/
 }
