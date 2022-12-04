@@ -22,7 +22,7 @@ public abstract class NhanVien extends Person {
 
     public void setMaNV(int maNV) {
         do{
-            System.out.print("\nMa nhan vien: ");
+            System.out.print("\n-> Ma nhan vien: ");
             maNV = Integer.parseInt(sc.nextLine());
         }
         while(maNV < 0 ||  maNV > 1000);

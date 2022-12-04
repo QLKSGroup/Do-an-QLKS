@@ -85,7 +85,7 @@ public class DSNV implements Docghifile{
             {
                 System.out.println("Nhap sai lua chon!");
             }
-            System.out.println("\n------------Bat dau nhap nhan vien thu "+ (i+1)+ "--------------");
+            System.out.print("\n------------Bat dau nhap nhan vien thu "+ (i+1)+ "--------------");
             nhanVien[i].nhap();
             nhanVien[i].tinhLuong();
            

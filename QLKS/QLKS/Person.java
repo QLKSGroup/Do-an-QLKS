@@ -34,7 +34,7 @@ public class Person{
     {
         do 
         {
-            System.out.print("\nNhap ho ten: ");
+            System.out.print("\n-> Ho va ten: ");
             hoTen = sc.nextLine();
         } while(hoTen.length()==0);
         this.hoTen = hoTen;
@@ -48,7 +48,7 @@ public class Person{
 
     public void setCMND() {
         do{
-             System.out.print("\nNhap CMND:");
+             System.out.print("\n-> Can cuoc cong dan: ");
             CMND = sc.nextLine();
         } while(CMND.length() != 12);
         this.CMND = CMND;
@@ -64,7 +64,7 @@ public class Person{
     {
         do 
         {
-            System.out.print("\nNhap gioi tinh: ");
+            System.out.print("\n-> Gioi tinh: ");
             gioiTinh = sc.nextLine();
         } while(!gioiTinh.equalsIgnoreCase("Nam")&&!gioiTinh.equalsIgnoreCase("Nu"));
         this.gioiTinh = gioiTinh;
@@ -78,7 +78,7 @@ public class Person{
 
     public void setNamSinh() {
         do{
-            System.out.print("\nNhap nam sinh:");
+            System.out.print("\n-> Nam sinh: ");
             this.namSinh=Integer.parseInt(sc.nextLine());
         }
         while((2022 - namSinh) <18);
@@ -91,7 +91,7 @@ public class Person{
         String email;
         do
         {
-            System.out.print("\nNhap email:");
+            System.out.print("\n-> Email: ");
             email=sc.nextLine();
             if (email.contains("@gmail.com")==false)
             {
@@ -115,7 +115,7 @@ public class Person{
 
     public void setSDT() {
         do {
-            System.out.print("\nNhap SDT: ");
+            System.out.print("\n-> So dien thoai: ");
             SDT = sc.nextLine();
            } while (SDT.length() != 10);
         this.SDT = SDT;
@@ -129,8 +129,7 @@ public class Person{
         setCMND();
         setGioiTinh();
         setNamSinh();
-        System.out.print("\nMoi nhap email:");
-        email = sc.nextLine();
+        setEmail();
         setSDT();
     }
 
