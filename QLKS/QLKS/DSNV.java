@@ -149,7 +149,7 @@ public class DSNV implements Docghifile{
     }
   
     public void searchArray(){
-        System.out.println("---------------Ban dang trong muc sua thong tin nhan vien--------------");
+        System.out.println("---------------Ban dang trong muc tim kiem thong tin nhan vien--------------");
         System.out.println("So luong nhan vien ban muon sua la: ");
         int n = sc.nextInt();
 
@@ -188,45 +188,38 @@ public class DSNV implements Docghifile{
         
     }
 
-    // public int readfilelayn(){
-    //     n=0;
-    //     try{
-    //         FileReader fr=new FileReader("C:\\Users\\User\\OneDrive - 101203\\Desktop\\SGU Study\\HKIII_SGU_2022-2023\\Lập trình hướng đối tượng\\DSnhanVien.txt");
-    //         BufferedReader br=new BufferedReader(fr);
-    //         while(br.readLine()!=null){
-    //             n++;
-    //         }
-    //         br.close();
-    //         fr.close();
-    //     }catch(IOException ex){
+    public int readfilelayn(){
+        tongNhanVien = 0;
+        try{
+            FileReader fr=new FileReader("C:\\Users\\User\\OneDrive - 101203\\Desktop\\SGU Study\\HKIII_SGU_2022-2023\\Lập trình hướng đối tượng\\DSnhanVien.txt");
+            BufferedReader br=new BufferedReader(fr);
+            while(br.readLine()!=null){
+                tongNhanVien ++;
+            }
+            br.close();
+            fr.close();
+        }catch(IOException ex){
             
-    //     }
-    //     return n;
-    // }
+        }
+        return tongNhanVien;
+    }
     @Override
     public String readfile() {
-        nhanVien =new NhanVien[tongNhanVien];
+       String st1[];
+       String st;
         try {
-            FileReader fr = new FileReader("C:\\Users\\Duyen\\OneDrive\\Desktop\\QLKS\\QLKS\\DSNhanVien.txt");
+            FileReader fr = new FileReader("C:\\Users\\Duyen\\OneDrive\\Desktop\\QLKS\\QLKS\\QLKS\\DSNhanVien.txt");
             BufferedReader  br= new BufferedReader(fr);
-            String line;
-            for(int i = 0; i< tongNhanVien ; i++){
-                if((line=br.readLine())!=null){
-                    if(!(line.equals(""))){
-                        String []s= line.split("###");
-                        //System.out.println(s[0]+"   "+s[1]+"   "+s[2]+"   "+s[3]+"   "+s[4]+"   "+s[5]+"   "+s[6]);
-                        nhanVien[i].setMaNV(Integer.parseInt(s[0]));
-                        nhanVien[i].setHoTen(s[1]);
-                        nhanVien[i].setCMND(s[2]);
-                        nhanVien[i].setGioiTinh(s[3]);
-                        nhanVien[i].setNamSinh(s[4]);
-                        nhanVien[i].setEmail(s[5]);
-                        nhanVien[i].setSDT(s[6]);
-                        //System.out.print(nhanVien[i].getHoten()+" "+nhanVien[i].getCMND()+" "+nhanVien[i].getmaKH()+" "+nhanVien[i].getGioiTinh()+" "+nhanVien[i].getNamSinh()+" "+nhanVien[i].getEmail()+" "+nhanVien[i].getSDT());
-                    }
-                    
-                }
-            }
+            int tongNhanVien = Integer.parseInt(br.readLine());
+            nhanVien =new NhanVien[tongNhanVien];
+            int i = 0;
+            while(true){
+                 st=br.readLine();
+                 if(st==null)break;
+                 st1=st.split("###");
+                 
+                 i++;
+             }
             br.close();
             fr.close();  
         }catch (IOException ex) {
@@ -240,7 +233,7 @@ public class DSNV implements Docghifile{
     public void savefile(String fcontent) {
          String fContent = "";
          try {
-             FileWriter fw = new FileWriter("C:\\Users\\Duyen\\OneDrive\\Desktop\\QLKS\\QLKS\\QLKS\\DSNhanVien.txt");
+             FileWriter fw = new FileWriter("C:\\Users\\Duyen\\OneDrive\\Desktop\\QLKS\\QLKS\\QLKS\\DSNhanVien.txt",true);
              BufferedWriter bw = new BufferedWriter(fw);
              for(int i = 0 ; i < tongNhanVien ; i++){
                  if(nhanVien[i]!=null){

@@ -25,11 +25,11 @@ public class QuanLyKhachSan  {
      //static Scanner sc= new Scanner(System.in);
      public static void main(String[] args) throws ParseException {
         Scanner sc=new Scanner(System.in);
-         Scanner in=new Scanner(System.in);
          DSKH kh = new DSKH();
          DSDichVu dvu = new DSDichVu();
        SoDoPhong y=new SoDoPhong();
        DSNV nv = new DSNV();
+       //nv.readfile();
         //kh.readfile();
         y.readfile();
        int c=1;
@@ -59,6 +59,7 @@ public class QuanLyKhachSan  {
            case 1:
            {
                 nv.nhapDS();
+                nv.savefile("");
                 break;
            }
            case 2:
@@ -69,6 +70,7 @@ public class QuanLyKhachSan  {
            case 3:
            {
                 nv.addArray();
+                nv.savefile("");
                 break;
            }
            case 4:
@@ -91,7 +93,9 @@ public class QuanLyKhachSan  {
                 b=0;
                 break;
            }
+          
        }
+      
        }
        while (b==1);
        sc.close();
@@ -129,7 +133,7 @@ public class QuanLyKhachSan  {
         do{
             System.out.println("Moi nhap lua chon: ");
             xuat();
-            chon=in.nextInt();
+            chon=sc.nextInt();
             
             do{
                 switch(chon){
@@ -137,12 +141,12 @@ public class QuanLyKhachSan  {
                     case 2: dvu.readfile(); dvu.XuatDsdv(); break;
                     case 3: dvu.SuaDS(); dvu.savefile(""); break;
                     default: System.out.println("Lua chon khong hop le ! Moi chon lai: ");
-                    chon=in.nextInt();
+                    chon=sc.nextInt();
                 }
             }while(chon<1 && chon>3);
             System.out.print("Ban co muon chon them lua chon khong ?");
             luachon();
-            x=in.nextInt();
+            x=sc.nextInt();
         }while(x==1);
         break;
             }
@@ -192,7 +196,7 @@ public class QuanLyKhachSan  {
         do{
             System.out.println("Moi nhap lua chon: ");
             xuat();
-            chon=in.nextInt();
+            chon=sc.nextInt();
             
             do{
                 switch(chon){
@@ -200,27 +204,18 @@ public class QuanLyKhachSan  {
                     case 2: a.readfile(); a.XuatDSCP(); break;
                     case 3: a.SuaDSCP(); a.savefile(""); break;
                     default: System.out.println("Lua chon khong hop le ! Moi chon lai: ");
-                    chon=in.nextInt();
+                    chon=sc.nextInt();
                 }
             }while(chon<1 && chon>3);
             System.out.print("Ban co muon chon them lua chon khong ?");
             luachon();
-            x=in.nextInt();
+            x=sc.nextInt();
         }while(x==1); break;
     }
-    
-
-
             
             case 8:c=0;break;
        }
        }
        while (c==1);
-       
-     
-      
-
-     
-
 }
 }

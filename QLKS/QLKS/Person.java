@@ -99,6 +99,7 @@ public class Person{
             }
         }
         while (email.contains("@gmail.com")==false);
+        this.email = email;
     }
     public String getEmail() {
         return email;

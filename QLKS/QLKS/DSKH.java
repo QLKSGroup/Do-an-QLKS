@@ -300,7 +300,6 @@ public class DSKH implements Docghifile{
             FileReader fr = new FileReader("C:\\Users\\User\\OneDrive - 101203\\Desktop\\SGU Study\\HKIII_SGU_2022-2023\\Lập trình hướng đối tượng\\DSKhachhang.txt");
             BufferedReader  br= new BufferedReader(fr);
             String line;
-            int namSinh;
             for(int i=0; i<n; i++){
                 if((line=br.readLine())!=null){
                     if(!(line.equals(""))){

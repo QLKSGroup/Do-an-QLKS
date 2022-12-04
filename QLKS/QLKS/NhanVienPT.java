@@ -14,6 +14,13 @@ public class NhanVienPT extends NhanVien {
         this.gioLamViec = gioLamViec;
     }
     
+    
+    public NhanVienPT(String hoTen, String CMND, String gioiTinh, int namSinh, String email, String SDT, int maNV,
+            int luong, int gioLamViec) {
+        super(hoTen, CMND, gioiTinh, namSinh, email, SDT, maNV, luong);
+        this.gioLamViec = gioLamViec;
+    }
+    
     public int getGioLamViec() {
         return gioLamViec;
     }

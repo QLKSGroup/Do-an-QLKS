@@ -128,7 +128,7 @@ public class DSChiPhiPhatSinh implements Docghifile{
     public void savefile(String fcontent){
         String fc="";
         try{
-            FileWriter fsave=new FileWriter("C:\\Users\\User\\OneDrive - 101203\\Desktop\\SGU Study\\HKIII_SGU_2022-2023\\Lập trình hướng đối tượng\\DSChiPhi.txt");
+            FileWriter fsave=new FileWriter("C:\\Users\\Duyen\\OneDrive\\Desktop\\QLKS\\QLKS\\QLKS\\DSChiPhi.txt");
             BufferedWriter fs=new BufferedWriter(fsave);
             for(int i=0; i<n; i++){
                 if(ds[i]!=null){
@@ -153,7 +153,7 @@ public class DSChiPhiPhatSinh implements Docghifile{
         ds=new ChiPhiPhatSinh[100];
         n=0;
         try{
-            FileReader fread=new FileReader("C:\\Users\\User\\OneDrive - 101203\\Desktop\\SGU Study\\HKIII_SGU_2022-2023\\Lập trình hướng đối tượng\\DSChiPhi.txt");
+            FileReader fread=new FileReader("C:\\Users\\Duyen\\OneDrive\\Desktop\\QLKS\\QLKS\\QLKS\\DSChiPhi.txt");
             BufferedReader fr=new BufferedReader(fread);
             String fc;
             while((fc=fr.readLine())!=null){

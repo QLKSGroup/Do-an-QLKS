@@ -1,0 +1,10 @@
+123###nguyen thuy duyn###098765432111###nam###2001###thuy@gmail.com###1234567890###quan ly toan thoi gian(Co lam them ngay)###7480000
+456###nguyen thi a###123456789111###nu###2004###thuyduyen@gmail.com###0987654321###Nhan vien ban thoi gian###126000
+123###nguyen thi d###123456789000###nu###2000###a@gmail.com###1234567899###nhan vien toan thoi gian###7200000
+654###nguyen van f###098765432111###nam###2003###thi@gmail.com###0987654322###Nhan vien ban thoi gian###21000
+568###nguyen thi m###123456789999###nam###2001###THIM@gmail.com###1234567899###nhan vien toan thoi gian(Co lam them ngay)###7760000
+379###nguyen q###123456789000###nam###2000###thi@gmail.com###1234567890###Nhan vien ban thoi gian###21000
+379###nguyen q###123456789000###nam###2000###thi@gmail.com###1234567890###Nhan vien ban thoi gian###21000
+379###nguyen q###123456789000###nam###2000###thi@gmail.com###1234567890###Nhan vien ban thoi gian###21000
+379###nguyen q###123456789000###nam###2000###thi@gmail.com###1234567890###Nhan vien ban thoi gian###21000
+379###nguyen q###123456789000###nam###2000###thi@gmail.com###1234567890###Nhan vien ban thoi gian###21000
