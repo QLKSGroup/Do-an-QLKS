@@ -85,7 +85,7 @@ public class DSNV implements Docghifile{
             {
                 System.out.println("Nhap sai lua chon!");
             }
-            System.out.print("\n------------Bat dau nhap nhan vien thu "+ (i+1)+ "--------------");
+            System.out.println("\n------------Bat dau nhap nhan vien thu "+ (i+1)+ "--------------");
             nhanVien[i].nhap();
             nhanVien[i].tinhLuong();
            
@@ -149,7 +149,7 @@ public class DSNV implements Docghifile{
     }
   
     public void searchArray(){
-        System.out.println("---------------Ban dang trong muc tim kiem thong tin nhan vien--------------");
+        System.out.println("---------------Ban dang trong muc sua thong tin nhan vien--------------");
         System.out.println("So luong nhan vien ban muon sua la: ");
         int n = sc.nextInt();
 
@@ -188,68 +188,68 @@ public class DSNV implements Docghifile{
         
     }
 
-    public int readfilelayn(){
-        tongNhanVien = 0;
+    @Override
+    public String readfile() {
         try{
-            FileReader fr=new FileReader("C:\\Users\\User\\OneDrive - 101203\\Desktop\\SGU Study\\HKIII_SGU_2022-2023\\Lập trình hướng đối tượng\\DSnhanVien.txt");
-            BufferedReader br=new BufferedReader(fr);
-            while(br.readLine()!=null){
-                tongNhanVien ++;
+            FileReader fr=new FileReader("DSNhanVien.txt");
+            BufferedReader br = new BufferedReader(fr);
+            tongNhanVien = Integer.parseInt(br.readLine());
+            nhanVien=new NhanVien[tongNhanVien];
+            for (int i=0;i<tongNhanVien;i++)
+            {
+                System.out.println("Chon loai nhan vien");
+                System.out.println("1. Nhan vien toan thoi gian.");
+                System.out.println("2. Nhan vien ban thoi gian.");
+                int choose = sc.nextInt();
+
+                if(choose == 1)
+                {
+                    nhanVien[i]= new NhanVienFT();
+                    String st = br.readLine();
+                    String []s = st.split("");
+               
+                    nhanVien[i].setHoTen(s[0]);
+                    nhanVien[i].setCMND(s[1]);
+                    nhanVien[i].setNamSinh(s[2]);
+                    nhanVien[i].setGioiTinh(s[3]);
+                    nhanVien[i].setEmail(s[4]);
+                    nhanVien[i].setSDT(s[5]);
+                    nhanVien[i].setMaNV(Integer.parseInt(s[6]));
+                    nhanVien[i].setLuong(Integer.parseInt(s[8]));
+
+                }
+                else if(choose == 2)
+                {
+                    nhanVien[i] = new NhanVienPT();
+
+                }
+                
+                
             }
             br.close();
             fr.close();
-        }catch(IOException ex){
-            
         }
-        return tongNhanVien;
+        catch (IOException e) {}
+        return "SOS";
     }
-    @Override
-    public String readfile() {
-       String st1[];
-       String st;
-        try {
-            FileReader fr = new FileReader("C:\\Users\\Duyen\\OneDrive\\Desktop\\QLKS\\QLKS\\QLKS\\DSNhanVien.txt");
-            BufferedReader  br= new BufferedReader(fr);
-            int tongNhanVien = Integer.parseInt(br.readLine());
-            nhanVien =new NhanVien[tongNhanVien];
-            int i = 0;
-            while(true){
-                 st=br.readLine();
-                 if(st==null)break;
-                 st1=st.split("###");
-                 
-                 i++;
-             }
-            br.close();
-            fr.close();  
-        }catch (IOException ex) {
-
-        }
-        return null;
-    }
-
-
+    
     @Override
     public void savefile(String fcontent) {
-         String fContent = "";
-         try {
-             FileWriter fw = new FileWriter("C:\\Users\\Duyen\\OneDrive\\Desktop\\QLKS\\QLKS\\QLKS\\DSNhanVien.txt",true);
-             BufferedWriter bw = new BufferedWriter(fw);
-             for(int i = 0 ; i < tongNhanVien ; i++){
-                 if(nhanVien[i]!=null){
-                        fContent=nhanVien[i].getMaNV()+"###"+nhanVien[i].getHoten()+"###"+nhanVien[i].getCMND()+"###"+nhanVien[i].getGioiTinh()+"###"+nhanVien[i].getNamSinh()+"###"+nhanVien[i].getEmail()+"###"+nhanVien[i].getSDT()+"###"+nhanVien[i].loaiNhanVien()+"###"+nhanVien[i].luong;
-                        bw.write(fContent);
-                        bw.newLine();
-                    }
-                    
-                 }
-             bw.close();
-             fw.close();
-         } catch (IOException ex) {
-             System.out.println("Loi doc file!");
-         }
-     }
+        String fContent = "";
+        try {
+            FileWriter writer = new FileWriter("DSNhanVien.txt", true);
+            for(int i=0;i<tongNhanVien ;i++){
+                if(nhanVien[i]!=null){
+                    fContent= nhanVien[i].getHoten() + "###" + nhanVien[i].getCMND() + "###" + nhanVien[i].getGioiTinh() + "###" + nhanVien[i].getNamSinh() + "###" + nhanVien[i].getEmail() + "###" + nhanVien[i].getSDT() + nhanVien[i].getMaNV() + "###" + nhanVien[i].loaiNhanVien() +"###" + nhanVien[i].getLuong();
+                    writer.write(fContent);
+                    writer.write("\r\n");
+                }
+            }
+            writer.close();
+        } catch (Exception   e) {
+            System.out.println("Loi");
+        }
+    }
 
-   
 
 }

@@ -34,7 +34,7 @@ public class Person{
     {
         do 
         {
-            System.out.print("\n-> Ho va ten: ");
+            System.out.print("\nNhap ho ten: ");
             hoTen = sc.nextLine();
         } while(hoTen.length()==0);
         this.hoTen = hoTen;
@@ -48,7 +48,7 @@ public class Person{
 
     public void setCMND() {
         do{
-             System.out.print("\n-> Can cuoc cong dan: ");
+             System.out.print("\nNhap CMND:");
             CMND = sc.nextLine();
         } while(CMND.length() != 12);
         this.CMND = CMND;
@@ -64,7 +64,7 @@ public class Person{
     {
         do 
         {
-            System.out.print("\n-> Gioi tinh: ");
+            System.out.print("\nNhap gioi tinh: ");
             gioiTinh = sc.nextLine();
         } while(!gioiTinh.equalsIgnoreCase("Nam")&&!gioiTinh.equalsIgnoreCase("Nu"));
         this.gioiTinh = gioiTinh;
@@ -78,7 +78,7 @@ public class Person{
 
     public void setNamSinh() {
         do{
-            System.out.print("\n-> Nam sinh: ");
+            System.out.print("\nNhap nam sinh:");
             this.namSinh=Integer.parseInt(sc.nextLine());
         }
         while((2022 - namSinh) <18);
@@ -91,7 +91,7 @@ public class Person{
         String email;
         do
         {
-            System.out.print("\n-> Email: ");
+            System.out.print("\nNhap email:");
             email=sc.nextLine();
             if (email.contains("@gmail.com")==false)
             {
@@ -99,7 +99,6 @@ public class Person{
             }
         }
         while (email.contains("@gmail.com")==false);
-        this.email = email;
     }
     public String getEmail() {
         return email;
@@ -116,7 +115,7 @@ public class Person{
 
     public void setSDT() {
         do {
-            System.out.print("\n-> So dien thoai: ");
+            System.out.print("\nNhap SDT: ");
             SDT = sc.nextLine();
            } while (SDT.length() != 10);
         this.SDT = SDT;
@@ -130,7 +129,8 @@ public class Person{
         setCMND();
         setGioiTinh();
         setNamSinh();
-        setEmail();
+        System.out.print("\nMoi nhap email:");
+        email = sc.nextLine();
         setSDT();
     }
 

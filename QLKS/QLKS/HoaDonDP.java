@@ -6,6 +6,7 @@ package QLKS;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
@@ -19,13 +20,13 @@ public class HoaDonDP {
     private Khachhang KH;
     private String dsDV[];
     private int n;
-    //private int sl[];
+    private int sl[];
     private static long soHD=-1;
     private long maHD=0;
     private String maPhong;
     private long totalDV;
     private long totalP;
-    //private long total;
+    private long total;
     static Scanner sc= new Scanner(System.in);
     public HoaDonDP(){
         
@@ -50,6 +51,9 @@ public class HoaDonDP {
         }
         setPhong();
     }
+    public String getKH(){
+        return KH.getHoten();
+    }
     public void traPhong() throws ParseException
     {
 //        java. SimpleDateFormat kế thừa lớp java.text.DateFormat.
@@ -59,6 +63,7 @@ public class HoaDonDP {
         sdp.readfile();
         sdp.traPhong(maPhong);
         tinhtienPhong();
+        settotal();
     }
     public void tinhtienPhong() throws ParseException{
         SoDoPhong sdp=new SoDoPhong();
@@ -145,16 +150,6 @@ public class HoaDonDP {
            }
        }
     }
-
-    public void setMaHD(String a)
-    {
-        maHD = Long.parseLong(a);
-    }
-    
-    public void setTotal(String a) {
-        total = Long.parseLong(a);
-    }
-    
     public String getNgayVao() {
         return ngayVao;
     }
@@ -176,7 +171,7 @@ public class HoaDonDP {
     }
 
     public long getTotal() {
-        return (totalP+totalDV);
+        return total;
     }
 
     public HoaDonDP(String ngayVao, String ngayRa, long maHD, String maPhong, long total) {
@@ -279,21 +274,28 @@ public class HoaDonDP {
     public void setNgayRa(String ngayRa) {
         this.ngayRa = ngayRa;
     }
-
+    public void settotal(){
+        this.total=this.totalDV+this.totalP;
+    }
     public void setDsDV(String[] dsDV) {
         this.dsDV = dsDV;
     }
 
-    public void setMaHD(long maHD) {
+    public void setMaHD(Long maHD) {
         this.maHD = maHD;
     }
 
     public void setMaPhong(String maPhong) {
         this.maPhong = maPhong;
     }
-
-    public void setTotal(long total) {
-        this.total = total;
+    public void setKH(String tenKH){
+        DSKH kh=new DSKH();
+        Khachhang temp=new Khachhang();
+        temp=kh.tentimKH(tenKH);
+        this.KH=temp;
+    }
+    public void setTotal(String total){
+        this.total = Long.parseLong(total);
     }
     public void nhapTTHD() throws ParseException{
         datPhong();
@@ -308,8 +310,17 @@ public class HoaDonDP {
         }
         return s;
     }
+    public void setdv(String a){
+        String []tempdv=a.split(" ");
+        n=tempdv.length;
+        this.dsDV=new String[n];
+        for(int j=0; j<n; j++){
+            dsDV[j]=new String();
+            dsDV[j]=tempdv[j];
+        }
+    }
     @Override
     public String toString(){
-        return String.format("| %-10s | %-20s | %-20s | %-10s | %-40s | %-40s | %-10d |\n", maHD, ngayVao, ngayRa, maPhong, KH.getHoten(), ghepdsdv(),(totalDV+totalP));
+        return String.format("| %-10s | %-20s | %-20s | %-10s | %-40s | %-40s | %-10d |\n", maHD, ngayVao, ngayRa, maPhong, KH.getHoten(), ghepdsdv(),total);
     }
 }

@@ -7,7 +7,6 @@ public class DSHoaDonDP implements Docghifile{
     private static HoaDonDP dshd[];
     private static int n;
     private static Gia tongthu=new Gia();
-    private Khachhang KH;
     public void luachon(){
         System.out.println("----SUA DOI DANH SACH HOA DON----");
         System.out.println("1 -- Them vao danh sach --");
@@ -29,8 +28,10 @@ public class DSHoaDonDP implements Docghifile{
             dshd[i]=new HoaDonDP();
             dshd[i].nhapTTHD();
         }
+        savefile("");
     }
     public void xuatDSHD(){
+        readfile();
         System.out.println("-----> DANH SACH HOA DON <-----");
         System.out.printf("| %-1s | %-10s | %-20s | %-20s | %-10s | %-40s | %-40s | %-10s |\n", "STT", "Ma Hoa Don", "Ngay vao", "Ngay ra", "Ma Phong", "Khach hang", "Dich vu", "Tong chi phi");
         for(int i=0; i<n; i++){
@@ -47,6 +48,7 @@ public class DSHoaDonDP implements Docghifile{
         return tongthu.getGia();
     }
     public void SuaDSHD() throws ParseException{
+        readfile();
         int chon;
         do{
             System.out.println("Moi nhap lua chon sua hoa don: ");
@@ -63,6 +65,7 @@ public class DSHoaDonDP implements Docghifile{
                 chon=sc.nextInt();
             }
         }while(chon<1 && chon>3);
+        savefile("");
     }
     public void themDSHD() throws ParseException{
         int plus;
@@ -142,9 +145,9 @@ public class DSHoaDonDP implements Docghifile{
         }
     }
     public int readfilelayn(){
-        n=0;
+        this.n=0;
         try{
-            FileReader fr=new FileReader("C:\\Users\\downny\\Desktop\\QLKS\\QLKS\\QLKS\\DSHoaDonDP.txt");
+            FileReader fr=new FileReader("C:\\Users\\User\\OneDrive - 101203\\Desktop\\SGU Study\\HKIII_SGU_2022-2023\\Lập trình hướng đối tượng\\DSHoaDonDP.txt");
             BufferedReader br=new BufferedReader(fr);
             while(br.readLine()!=null){
                 n++;
@@ -157,29 +160,32 @@ public class DSHoaDonDP implements Docghifile{
     }
     @Override
     public String readfile(){
-        String fcontent="";
-        n=readfilelayn();
+        String fc="";
+        readfilelayn();
         dshd=new HoaDonDP[n];
         try{
-            FileReader fr=new FileReader("C:\\Users\\downny\\Desktop\\QLKS\\QLKS\\QLKS\\DSHoaDonDP.txt");
+            FileReader fr=new FileReader("C:\\Users\\User\\OneDrive - 101203\\Desktop\\SGU Study\\HKIII_SGU_2022-2023\\Lập trình hướng đối tượng\\DSHoaDonDP.txt");
             BufferedReader br=new BufferedReader(fr);
-            String fc;
             for(int i=0; i<n; i++){
                 if((fc=br.readLine())!=null){
-                    if(!(fc.equals(""))){
-                        String []Value=fc.split("   ");
-
-                        dshd[n] =new HoaDonDP();
-                        dshd[n].setMaHD(Value[1]);
-                        dshd[n].setNgayVao(Value[2]);
-                        dshd[n].setNgayRa(Value[3]);
-                        dshd[n].setMaPhong(Value[4]);
-                        dshd[n].setTotal(Value[5]);
-                        dshd[n].KH.setHoTen(Value[5]);
-                        n++;
+                    if(!fc.equals("")){
+                        String []Value=fc.split("###");
+                        if(Value.length>0){
+                            //System.out.println(Value[0]+" "+Value[1]+" "+Value[2]+" "+Value[3]+" "+Value[4]+" "+Value[5]+" "+Value[6]);
+                            dshd[i]=new HoaDonDP();
+                            dshd[i].setMaHD(Long.parseLong(Value[0]));
+                            dshd[i].setNgayVao(Value[1]);
+                            dshd[i].setNgayRa(Value[2]);
+                            dshd[i].setMaPhong(Value[3]);
+                            dshd[i].setKH(Value[4]);
+                            dshd[i].setdv(Value[5]);
+                            dshd[i].setTotal(Value[6]);
+                        }
+                    }
                 }
-                    
-                }
+            }
+            br.close();
+            fr.close();
         }catch(IOException ex){
             
         }
@@ -187,10 +193,21 @@ public class DSHoaDonDP implements Docghifile{
     }
     @Override
     public void savefile(String fcontent){
+        String fc="";
         try{
-            FileWriter fsave=new FileWriter("C:\\Users\\downny\\Desktop\\QLKS\\QLKS\\QLKS\\DSHoaDonDP.txt");
+            FileWriter fsave=new FileWriter("C:\\Users\\User\\OneDrive - 101203\\Desktop\\SGU Study\\HKIII_SGU_2022-2023\\Lập trình hướng đối tượng\\DSHoaDonDP.txt");
+            BufferedWriter bw=new BufferedWriter(fsave);
+            for(int i=0; i<n; i++){
+                if(dshd[i]!=null){
+                    fc=dshd[i].getMaHD()+"###"+dshd[i].getNgayVao()+"###"+dshd[i].getNgayRa()+"###"+dshd[i].getMaPhong()+"###"+dshd[i].getKH()+"###"+dshd[i].ghepdsdv()+"###"+dshd[i].getTotal();
+                    bw.write(fc);
+                    bw.newLine();
+                }
+            }
+            bw.close();
+            fsave.close();
         }catch(IOException ex){
             
         }
-    }*/
+    }
 }
